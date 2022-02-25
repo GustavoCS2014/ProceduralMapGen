@@ -1,0 +1,2 @@
+# Selvmord
+Selvmord Git Project
