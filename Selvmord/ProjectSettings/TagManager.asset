@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Tile
   - Tile-NonWalkable
+  - Room
+  - RoomSpawner
   layers:
   - Default
   - TransparentFX

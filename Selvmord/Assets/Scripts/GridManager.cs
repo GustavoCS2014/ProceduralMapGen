@@ -19,9 +19,9 @@ public class GridManager : MonoBehaviour
 
     // Start is called before the first frame updates.
     void Start(){
-        GenerateGrid();
+        //GenerateGrid();
         SpawnPlayer();
-        
+
     }
 
     // Generates the perlin noise grid.
@@ -59,28 +59,8 @@ public class GridManager : MonoBehaviour
     /// Spawns the player in 1,1 or any other location available.
     private void SpawnPlayer()
     {
-
-        if (PosibleTiles[1, 1])
-        {
-            var p = Instantiate(_player, new Vector3(1 + offset, 1, 1 + offset), Quaternion.identity);
-            p.name = $"Player";
-            p.gameObject.tag = "Player";
-        }
-        else
-        {
-            for (int x = 0; x < _gridSize; x++)
-            {
-                for (int y = 0; y < _gridSize; y++)
-                {
-                    if (PosibleTiles[x, y] && GameObject.Find("Player") == null)
-                    {
-                        var p = Instantiate(_player, new Vector3(x + offset, 1, y + offset), Quaternion.identity);
-                        p.name = $"Player";
-                        p.gameObject.tag = "Player";
-                    }
-
-                }
-            }
-        }
+        var p = Instantiate(_player, new Vector3(0 + offset, 1, 0 + offset), Quaternion.identity);
+        p.name = $"Player";
+        p.gameObject.tag = "Player";
     }
 }
