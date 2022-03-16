@@ -10,19 +10,16 @@ public class RoomAtributes : MonoBehaviour
     public Vector3 WestOffset;
     public Vector3 EastOffset;
 
-    private RoomSpawner roomSpawner;
-
+    //Used so platforms don't overlap with other objects. 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Rooms") || other.CompareTag("Bridge")){
-            Destroy(this.gameObject);
-            roomSpawner.HasSpawned = false;
-            roomSpawner.HasScanned = false;
-        }
-        else
+        if(other.CompareTag("Platforms") || other.CompareTag("Bridge"))
         {
-            roomSpawner.HasScanned = true;
-            Destroy(this);
+            if (gameObject.activeSelf)
+            {
+                other.gameObject.SetActive(false);
+                Destroy(other.gameObject);
+            }
         }
     }
 

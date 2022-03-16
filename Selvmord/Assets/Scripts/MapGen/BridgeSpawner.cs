@@ -11,49 +11,47 @@ public class BridgeSpawner : MonoBehaviour
 
     public bool HasSpawned;
 
-    private RoomTemplates templates;
-
+    private LevelManager templates;
 
 
     private void Start()
     {
-        templates = GameObject.FindGameObjectWithTag("RoomManager").GetComponent<RoomTemplates>();
+        templates = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         Invoke("SpawnBridge", 1f);
 
     }
 
     void SpawnBridge()
     {
-        if (templates.BridgeList.Count < templates.RoomCount && !HasSpawned)
+        if (templates.BridgeList.Count < templates.BridgeCount && !HasSpawned)
         {
             if (_facingSouth)
             {
-                
                 GameObject bridge = templates.SouthBridge;
                 BridgeAtributes bridge_Atributes = bridge.GetComponent<BridgeAtributes>();
-                Vector3 pos = gameObject.transform.position;
-                templates.BridgeList.Add(Instantiate(bridge, pos + bridge_Atributes.Offset, Quaternion.identity));
+                Vector3 position = gameObject.transform.position;
+                templates.BridgeList.Add(Instantiate(bridge, position + bridge_Atributes.Offset, Quaternion.identity));
             }
             else if (_facingNorth)
             {
                 GameObject bridge = templates.NorthBridge;
                 BridgeAtributes bridge_Atributes = bridge.GetComponent<BridgeAtributes>();
-                Vector3 pos = gameObject.transform.position;
-                templates.BridgeList.Add(Instantiate(bridge, pos + bridge_Atributes.Offset, Quaternion.identity));
+                Vector3 position = gameObject.transform.position;
+                templates.BridgeList.Add(Instantiate(bridge, position + bridge_Atributes.Offset, Quaternion.identity));
             }
             else if (_facingEast)
             {
                 GameObject bridge = templates.EastBridge;
                 BridgeAtributes bridge_Atributes = bridge.GetComponent<BridgeAtributes>();
-                Vector3 pos = gameObject.transform.position;
-                templates.BridgeList.Add(Instantiate(bridge, pos + bridge_Atributes.Offset, Quaternion.identity));
+                Vector3 position = gameObject.transform.position;
+                templates.BridgeList.Add(Instantiate(bridge, position + bridge_Atributes.Offset, Quaternion.identity));
             }
             else if (_facingWest)
             {
                 GameObject bridge = templates.WestBridge;
                 BridgeAtributes bridge_Atributes = bridge.GetComponent<BridgeAtributes>();
-                Vector3 pos = gameObject.transform.position;
-                templates.BridgeList.Add(Instantiate(bridge, pos + bridge_Atributes.Offset, Quaternion.identity));
+                Vector3 position = gameObject.transform.position;
+                templates.BridgeList.Add(Instantiate(bridge, position + bridge_Atributes.Offset, Quaternion.identity));
             }
 
             HasSpawned = true;

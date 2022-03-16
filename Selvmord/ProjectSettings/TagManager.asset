@@ -6,9 +6,9 @@ TagManager:
   tags:
   - Tile
   - RoomSpawner
-  - Rooms
-  - RoomManager
   - Bridge
+  - Platforms
+  - LevelManager
   layers:
   - Default
   - TransparentFX
@@ -16,8 +16,8 @@ TagManager:
   - GridPlane
   - Water
   - UI
-  - 
-  - 
+  - BridgeConector
+  - Platforms
   - 
   - 
   - 

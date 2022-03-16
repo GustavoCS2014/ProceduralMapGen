@@ -6,14 +6,16 @@ public class BridgeAtributes : MonoBehaviour
 {
     public Vector3 Offset;
 
-    private BridgeSpawner bridgeSpawner;
-
+    //Used so bridges don't overlap with other objects. 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Rooms") || other.CompareTag("Bridge"))
+        if (other.CompareTag("Platforms") || other.CompareTag("Bridge"))
         {
-            Destroy(this.gameObject);
-            bridgeSpawner.HasSpawned = false;
+            if (gameObject.activeSelf)
+            {
+                other.gameObject.SetActive(false);
+                Destroy(other.gameObject);
+            }
         }
     }
 }
