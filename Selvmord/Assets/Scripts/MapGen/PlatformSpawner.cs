@@ -31,6 +31,7 @@ public class PlatformSpawner : MonoBehaviour
             templates.TimeRemaining -= Time.deltaTime;
 
         DestroyBridgeIfNotConnectedToRoom();
+        DestroySpawner();
     }
 
     void SpawnPlatforms()
@@ -84,6 +85,13 @@ public class PlatformSpawner : MonoBehaviour
         {
             Destroy(transform.parent.gameObject);
         }
+    }
+
+    //Destroys the gameObject containing this script once the time runs off for performance reasons.
+    void DestroySpawner()
+    {
+        if (templates.TimeRemaining < 0f)
+            Destroy(gameObject);
     }
 
     private void OnTriggerStay(Collider other)

@@ -20,7 +20,10 @@ public class BridgeSpawner : MonoBehaviour
         Invoke("SpawnBridge", 1f);
 
     }
-
+    private void Update()
+    {
+        DestroySpawner();
+    }
     void SpawnBridge()
     {
         if (templates.BridgeList.Count < templates.BridgeCount && !HasSpawned)
@@ -56,5 +59,12 @@ public class BridgeSpawner : MonoBehaviour
 
             HasSpawned = true;
         }
+    }
+
+    //Destroys the gameObject containing this script once the time runs off for performance reasons.
+    void DestroySpawner()
+    {
+        if (templates.TimeRemaining < 0f)
+            Destroy(gameObject);
     }
 }
