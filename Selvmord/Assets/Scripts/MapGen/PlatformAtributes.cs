@@ -2,13 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomAtributes : MonoBehaviour
+public class PlatformAtributes : MonoBehaviour
 {
     
-    public Vector3 SouthOffset;
-    public Vector3 NorthOffset;
-    public Vector3 WestOffset;
-    public Vector3 EastOffset;
+    public Vector3 Offset;
 
     //Used so platforms don't overlap with other objects. 
     private void OnTriggerEnter(Collider other)

@@ -343,26 +343,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b40d7a8ad7e061f4ab4528892d96d4f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeRemaining: 80
-  SouthRooms:
+  TimeRemaining: 200
+  SouthPlatforms:
   - {fileID: 1000922327023969573, guid: ab614e84c4b96e34b9fbdcef1546304c, type: 3}
   - {fileID: 8745544946881795877, guid: 3a09c2ace487dbc479b815a8e9ed2904, type: 3}
-  NorthRooms:
+  NorthPlatforms:
   - {fileID: 7758589728278345728, guid: 5efa0199ae52fe34b8f12a54335ecf03, type: 3}
   - {fileID: 6011933144927815969, guid: 47417e684255cd342947d8dce676bd7e, type: 3}
-  EastRooms:
+  EastPlatforms:
   - {fileID: 2362541423160983112, guid: c54305bef86503e4fa9b402d5a9ad0fb, type: 3}
   - {fileID: 8133778110806680483, guid: 3285761fcf9bc61449b8564c550686c5, type: 3}
-  WestRooms:
-  - {fileID: 6113253334472601202, guid: a9dda836c43a58c46a0cf0a3ce2afcc8, type: 3}
+  WestPlatforms:
   - {fileID: 4796636982816172955, guid: a27c6bad985211a4d87a1c8976e7d104, type: 3}
+  - {fileID: 6113253334472601202, guid: a9dda836c43a58c46a0cf0a3ce2afcc8, type: 3}
   SouthBridge: {fileID: 6387126407977431537, guid: 1cf2565e544b6464cb7121aa5ce61814, type: 3}
   NorthBridge: {fileID: 8706113421930207961, guid: e2d6b5b1c5a0e2240ae636a7e360c45d, type: 3}
   EastBridge: {fileID: 3514865763555399852, guid: 028bbd4005e78a146910e0cacebfd993, type: 3}
   WestBridge: {fileID: 9060804145063223898, guid: 9e7405fbc7819654a868e2cb19c2137a, type: 3}
   RoomList: []
   BridgeList: []
-  BridgeCount: 40
+  BridgeCount: 270
 --- !u!4 &1222763530
 Transform:
   m_ObjectHideFlags: 0

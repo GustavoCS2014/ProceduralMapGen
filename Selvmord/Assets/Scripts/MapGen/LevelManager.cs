@@ -6,10 +6,10 @@ public class LevelManager : MonoBehaviour
 {
     public float TimeRemaining;
 
-    public GameObject[] SouthRooms;
-    public GameObject[] NorthRooms;
-    public GameObject[] EastRooms;
-    public GameObject[] WestRooms;
+    public GameObject[] SouthPlatforms;
+    public GameObject[] NorthPlatforms;
+    public GameObject[] EastPlatforms;
+    public GameObject[] WestPlatforms;
 
     public GameObject SouthBridge;
     public GameObject NorthBridge;

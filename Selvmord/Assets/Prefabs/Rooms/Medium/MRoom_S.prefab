@@ -98,10 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d10ee491fba48e94ebe341a01993711e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SouthOffset: {x: 0, y: 0, z: -4.5}
-  NorthOffset: {x: 0, y: 0, z: 4.5}
-  WestOffset: {x: -4.5, y: 0, z: 0}
-  EastOffset: {x: 4.5, y: 0, z: 0}
+  Offset: {x: 0, y: 0, z: -4.5}
 --- !u!65 &1000922327023969572
 BoxCollider:
   m_ObjectHideFlags: 0

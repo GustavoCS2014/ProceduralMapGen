@@ -10,7 +10,6 @@ public class PlatformSpawner : MonoBehaviour
     [SerializeField] private bool _facingWest;
 
     private LevelManager templates;
-    private RoomAtributes roomAtributes;
     private GameObject thisRoom;
     
     private bool connected;
@@ -22,14 +21,12 @@ public class PlatformSpawner : MonoBehaviour
     private void Start()
     {
         templates = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
-        Invoke("SpawnPlatforms", 1f);
-
     }
     private void Update()
     {
         if(templates.TimeRemaining > 0f)
             templates.TimeRemaining -= Time.deltaTime;
-
+        SpawnPlatforms();
         DestroyBridgeIfNotConnectedToRoom();
         DestroySpawner();
     }
@@ -40,43 +37,35 @@ public class PlatformSpawner : MonoBehaviour
         {
             if (_facingSouth)
             {
-                rand = Random.Range(0, templates.SouthRooms.Length);
-                    
-                GameObject platform = templates.SouthRooms[rand];
-                roomAtributes = platform.GetComponent<RoomAtributes>();
-                Vector3 position = gameObject.transform.position;
-                thisRoom = Instantiate(platform, position + roomAtributes.SouthOffset, Quaternion.identity);
+                InstantiatePlatform(templates.SouthPlatforms);
             }
             else if (_facingNorth)
             {
-                rand = Random.Range(0, templates.NorthRooms.Length);
-                    
-                GameObject platform = templates.NorthRooms[rand];
-                roomAtributes = platform.GetComponent<RoomAtributes>();
-                Vector3 position = gameObject.transform.position;
-                thisRoom = Instantiate(platform, position + roomAtributes.NorthOffset, Quaternion.identity);
+                InstantiatePlatform(templates.NorthPlatforms);
             }
             else if (_facingEast)
             {
-                rand = Random.Range(0, templates.EastRooms.Length);
-                    
-                GameObject platform = templates.EastRooms[rand];
-                roomAtributes = platform.GetComponent<RoomAtributes>();
-                Vector3 position = gameObject.transform.position;
-                thisRoom = Instantiate(platform, position + roomAtributes.EastOffset, Quaternion.identity);
+                InstantiatePlatform(templates.EastPlatforms);
             }
             else if (_facingWest)
             {
-                rand = Random.Range(0, templates.WestRooms.Length);
-
-                GameObject platform = templates.WestRooms[rand];
-                roomAtributes = platform.GetComponent<RoomAtributes>();
-                Vector3 position = gameObject.transform.position;
-                thisRoom = Instantiate(platform, position + roomAtributes.WestOffset, Quaternion.identity);
+                InstantiatePlatform(templates.WestPlatforms);
             }
-            templates.RoomList.Add(thisRoom);
-            HasSpawned = true;
+            
         }
+    }
+
+    void InstantiatePlatform(GameObject[] roomsArray)
+    {
+        rand = Random.Range(0, roomsArray.Length);
+
+        GameObject platform = roomsArray[rand];
+        PlatformAtributes atributes = platform.GetComponent<PlatformAtributes>();
+        Vector3 position = gameObject.transform.position;
+        thisRoom = Instantiate(platform, position + atributes.Offset, Quaternion.identity);
+
+        templates.RoomList.Add(thisRoom);
+        HasSpawned = true;
     }
 
     void DestroyBridgeIfNotConnectedToRoom()

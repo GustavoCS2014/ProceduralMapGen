@@ -17,11 +17,11 @@ public class BridgeSpawner : MonoBehaviour
     private void Start()
     {
         templates = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
-        Invoke("SpawnBridge", 1f);
 
     }
     private void Update()
     {
+        SpawnBridge();
         DestroySpawner();
     }
     void SpawnBridge()
@@ -30,35 +30,29 @@ public class BridgeSpawner : MonoBehaviour
         {
             if (_facingSouth)
             {
-                GameObject bridge = templates.SouthBridge;
-                BridgeAtributes bridge_Atributes = bridge.GetComponent<BridgeAtributes>();
-                Vector3 position = gameObject.transform.position;
-                templates.BridgeList.Add(Instantiate(bridge, position + bridge_Atributes.Offset, Quaternion.identity));
+                InstantiateBridge(templates.SouthBridge);
             }
             else if (_facingNorth)
             {
-                GameObject bridge = templates.NorthBridge;
-                BridgeAtributes bridge_Atributes = bridge.GetComponent<BridgeAtributes>();
-                Vector3 position = gameObject.transform.position;
-                templates.BridgeList.Add(Instantiate(bridge, position + bridge_Atributes.Offset, Quaternion.identity));
+                InstantiateBridge(templates.NorthBridge);
             }
             else if (_facingEast)
             {
-                GameObject bridge = templates.EastBridge;
-                BridgeAtributes bridge_Atributes = bridge.GetComponent<BridgeAtributes>();
-                Vector3 position = gameObject.transform.position;
-                templates.BridgeList.Add(Instantiate(bridge, position + bridge_Atributes.Offset, Quaternion.identity));
+                InstantiateBridge(templates.EastBridge);
             }
             else if (_facingWest)
             {
-                GameObject bridge = templates.WestBridge;
-                BridgeAtributes bridge_Atributes = bridge.GetComponent<BridgeAtributes>();
-                Vector3 position = gameObject.transform.position;
-                templates.BridgeList.Add(Instantiate(bridge, position + bridge_Atributes.Offset, Quaternion.identity));
+                InstantiateBridge(templates.WestBridge);
             }
-
-            HasSpawned = true;
         }
+    }
+    void InstantiateBridge(GameObject bridge)
+    {
+        BridgeAtributes atributes = bridge.GetComponent<BridgeAtributes>();
+        Vector3 position = gameObject.transform.position;
+        templates.BridgeList.Add(Instantiate(bridge, position + atributes.Offset, Quaternion.identity));
+
+        HasSpawned = true;
     }
 
     //Destroys the gameObject containing this script once the time runs off for performance reasons.
