@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 02bbd866653559f4fa3b8306099ef4ac
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Staatliches
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 85d676fca5ff04b4eba167685fc53698, type: 3}
+  - {fileID: 12800000, guid: bcf0ea30403ae6b4ebea40f08f8368f0, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
