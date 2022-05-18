@@ -62,7 +62,8 @@ public class PlatformSpawner : MonoBehaviour
         GameObject platform = roomsArray[rand];
         PlatformAtributes atributes = platform.GetComponent<PlatformAtributes>();
         Vector3 position = gameObject.transform.position;
-        thisRoom = Instantiate(platform, position + atributes.Offset, Quaternion.identity);
+        var thisRoom = Instantiate(platform, position + atributes.Offset, Quaternion.identity);
+        thisRoom.transform.parent = GameObject.Find("Level").transform;
 
         templates.RoomList.Add(thisRoom);
         HasSpawned = true;

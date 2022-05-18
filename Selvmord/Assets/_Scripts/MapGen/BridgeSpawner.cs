@@ -50,7 +50,9 @@ public class BridgeSpawner : MonoBehaviour
     {
         BridgeAtributes atributes = bridge.GetComponent<BridgeAtributes>();
         Vector3 position = gameObject.transform.position;
-        templates.BridgeList.Add(Instantiate(bridge, position + atributes.Offset, Quaternion.identity));
+        var thisBridge = Instantiate(bridge, position + atributes.Offset, Quaternion.identity);
+        templates.BridgeList.Add(thisBridge);
+        thisBridge.transform.parent = GameObject.Find("Level").transform;
 
         HasSpawned = true;
     }
